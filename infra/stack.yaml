@@ -1,0 +1,95 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Insurance claims processing proof of concept (AIP-C01 Task 1.1 bonus assignment).
+  S3 document store and an Amazon Bedrock Guardrail that masks PII in generated summaries.
+  Nothing here costs money while idle: S3 bills for storage, and the Guardrail only when it is used.
+
+Parameters:
+  ProjectTag:
+    Type: String
+    Default: claims-poc
+    Description: Value for the Project tag on every resource, so leftovers are easy to find.
+
+Resources:
+  DocumentBucket:
+    Type: AWS::S3::Bucket
+    # Let CloudFormation generate a globally unique name, so no account ID or initials go into the repo.
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-poc-data
+            Status: Enabled
+            ExpirationInDays: 7 # safety net in case the teardown script is forgotten
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectTag
+
+  DocumentBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref DocumentBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: "*"
+            Action: "s3:*"
+            Resource:
+              - !GetAtt DocumentBucket.Arn
+              - !Sub "${DocumentBucket.Arn}/*"
+            Condition:
+              Bool:
+                aws:SecureTransport: "false"
+
+  SummaryGuardrail:
+    Type: AWS::Bedrock::Guardrail
+    Properties:
+      Name: !Sub "${AWS::StackName}-summary-pii"
+      Description: Masks PII in claim summaries before they are shared beyond the claims team.
+      BlockedInputMessaging: "This request was blocked by the claims guardrail."
+      BlockedOutputsMessaging: "This summary was blocked by the claims guardrail."
+      SensitiveInformationPolicyConfig:
+        PiiEntitiesConfig:
+          - Type: US_SOCIAL_SECURITY_NUMBER
+            Action: ANONYMIZE
+          - Type: CREDIT_DEBIT_CARD_NUMBER
+            Action: ANONYMIZE
+          - Type: US_BANK_ACCOUNT_NUMBER
+            Action: ANONYMIZE
+          - Type: EMAIL
+            Action: ANONYMIZE
+          - Type: PHONE
+            Action: ANONYMIZE
+          - Type: ADDRESS
+            Action: ANONYMIZE
+      Tags:
+        - Key: Project
+          Value: !Ref ProjectTag
+
+  # Pin an immutable version so application code never runs against an unreviewed DRAFT.
+  SummaryGuardrailVersion:
+    Type: AWS::Bedrock::GuardrailVersion
+    Properties:
+      GuardrailIdentifier: !GetAtt SummaryGuardrail.GuardrailId
+      Description: Initial PII masking policy
+
+Outputs:
+  BucketName:
+    Value: !Ref DocumentBucket
+  GuardrailId:
+    Value: !GetAtt SummaryGuardrail.GuardrailId
+  GuardrailVersion:
+    Value: !GetAtt SummaryGuardrailVersion.Version

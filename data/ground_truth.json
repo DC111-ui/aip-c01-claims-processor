@@ -1,0 +1,38 @@
+{
+  "claims/claim-001-auto.txt": {
+    "fields": {
+      "claimant_name": "Maria Okafor",
+      "policy_number": "POL-100234",
+      "incident_date": "2026-08-14",
+      "claim_amount": 3840.50,
+      "claim_type": "auto"
+    },
+    "expected_verdict": "LIKELY COVERED",
+    "expected_flags": [],
+    "notes": "Clean, form-style document. Baseline."
+  },
+  "claims/claim-002-home.txt": {
+    "fields": {
+      "claimant_name": "James Whitfield",
+      "policy_number": "POL-200871",
+      "incident_date": "2026-10-03",
+      "claim_amount": 4250.00,
+      "claim_type": "home"
+    },
+    "expected_verdict": "LIKELY COVERED",
+    "expected_flags": [],
+    "notes": "Free-text email: lower-case policy number, date in words, a distractor amount from an older claim, PII in the signature."
+  },
+  "claims/claim-003-travel.txt": {
+    "fields": {
+      "claimant_name": "Priya Raman",
+      "policy_number": "POL-300552",
+      "incident_date": "2026-07-22",
+      "claim_amount": 6800.00,
+      "claim_type": "travel"
+    },
+    "expected_verdict": "NEEDS REVIEW",
+    "expected_flags": ["claim_amount"],
+    "notes": "Messy text: DD/MM date, total above the $5,000 limit, electronics above the $500 single-item cap, SSN and card number in the body. Two incidents (theft on the 22nd, fall on the 24th); the first is the incident date."
+  }
+}

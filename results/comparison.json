@@ -1,0 +1,726 @@
+{
+  "summary": [
+    {
+      "model": "nova-micro -> haiku-4.5",
+      "claims": 3,
+      "field_accuracy": 1.0,
+      "verdict_agreement": 1.0,
+      "flags_caught": 1.0,
+      "summary_checks_passed": 1.0,
+      "mean_latency_ms": 1732,
+      "mean_tokens": 1529,
+      "cost_per_claim_usd": 0.000603,
+      "cost_per_10k_claims_usd": 6.03
+    },
+    {
+      "model": "nova-lite -> haiku-4.5",
+      "claims": 3,
+      "field_accuracy": 1.0,
+      "verdict_agreement": 1.0,
+      "flags_caught": 1.0,
+      "summary_checks_passed": 1.0,
+      "mean_latency_ms": 2370,
+      "mean_tokens": 1580,
+      "cost_per_claim_usd": 0.0007076666666666667,
+      "cost_per_10k_claims_usd": 7.076666666666666
+    },
+    {
+      "model": "haiku-4.5",
+      "claims": 3,
+      "field_accuracy": 1.0,
+      "verdict_agreement": 1.0,
+      "flags_caught": 1.0,
+      "summary_checks_passed": 1.0,
+      "mean_latency_ms": 2820,
+      "mean_tokens": 2062,
+      "cost_per_claim_usd": 0.0038203333333333336,
+      "cost_per_10k_claims_usd": 38.20333333333333
+    },
+    {
+      "model": "nova-micro",
+      "claims": 3,
+      "field_accuracy": 1.0,
+      "verdict_agreement": 0.6666666666666666,
+      "flags_caught": 1.0,
+      "summary_checks_passed": 1.0,
+      "mean_latency_ms": 1391,
+      "mean_tokens": 1498,
+      "cost_per_claim_usd": 7.8e-05,
+      "cost_per_10k_claims_usd": 0.78
+    },
+    {
+      "model": "nova-lite",
+      "claims": 3,
+      "field_accuracy": 1.0,
+      "verdict_agreement": 0.6666666666666666,
+      "flags_caught": 1.0,
+      "summary_checks_passed": 1.0,
+      "mean_latency_ms": 1819,
+      "mean_tokens": 1527,
+      "cost_per_claim_usd": 0.00013099999999999999,
+      "cost_per_10k_claims_usd": 1.3099999999999998
+    }
+  ],
+  "runs": [
+    {
+      "document_key": "claims/claim-001-auto.txt",
+      "model": "haiku-4.5",
+      "summary_model": "haiku-4.5",
+      "fields": {
+        "claimant_name": "Maria Okafor",
+        "policy_number": "POL-100234",
+        "incident_date": "2026-08-14",
+        "claim_amount": 3840.5,
+        "claim_type": "auto",
+        "incident_description": "Vehicle hit from behind at red light at junction of Elm Street and 5th Avenue, causing damage to rear bumper, boot lid and left tail light. Other driver admitted fault.",
+        "currency": "USD"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.3515
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.2973
+        }
+      ],
+      "summary": "**CLAIMS BRIEFING \u2013 POL-100234**\n\n**Incident Summary**\nMaria Okafor's vehicle was struck from behind at an intersection on 14 August 2026, sustaining damage to the rear bumper, boot lid, and left tail light; the other driver admitted fault.\n\n**Coverage Assessment**\nLIKELY COVERED. The claim involves collision with another vehicle, which falls within \"Collision with another vehicle or object\" under Covered Perils. The claimed amount of $3,840.50 exceeds the $2,000 threshold requiring a police report number per Claim Requirements.\n\n**Next Actions**\n1. Verify incident was reported within 30 days of 14 August 2026\n2. Request police report number (mandatory for claims above $2,000)\n3. Obtain repair estimates and photos\n4. Confirm deductible amount and apply to settlement\n5. Authorize repairs through approved repair shop once documentation is complete",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1502,
+      "output_tokens": 417,
+      "latency_ms": 2577,
+      "cost_usd": 0.003587,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-002-home.txt",
+      "model": "haiku-4.5",
+      "summary_model": "haiku-4.5",
+      "fields": {
+        "claimant_name": "James Whitfield",
+        "policy_number": "POL-200871",
+        "incident_date": "2026-10-03",
+        "claim_amount": 4250.0,
+        "claim_type": "home",
+        "incident_description": "Supply pipe under kitchen sink burst, causing approximately one inch of water across kitchen and hallway. Plumber replaced the failed fitting and dried out the room, replaced damaged laminate floor and base cabinet.",
+        "currency": "USD"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.4262
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.2872
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.2833
+        }
+      ],
+      "summary": "**CLAIMS BRIEFING**\n\n**Claimant:** James Whitfield | **Policy:** POL-200871 | **Claim Amount:** $4,250.00\n\n**Incident:** Supply pipe under kitchen sink burst on October 3, 2026, causing approximately one inch of water damage to the kitchen and hallway, with plumber repairs including fitting replacement, water extraction, flooring, and cabinet replacement.\n\n**Coverage Assessment:** LIKELY COVERED. The claim involves sudden and accidental discharge of water from plumbing, which falls within \"Covered Perils.\" The policy explicitly covers \"the cost of tearing out and replacing the part of the building needed to reach the damaged system,\" supporting coverage for the floor and cabinet work. No exclusions apply\u2014this was not continuous seepage or flood damage.\n\n**Next Action:** Request itemized contractor invoices, photos of the damage, and confirmation of the discovery date to satisfy \"Claim Requirements.\" Verify the plumber's invoice details before processing payment.",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1659,
+      "output_tokens": 423,
+      "latency_ms": 2651,
+      "cost_usd": 0.003774,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-003-travel.txt",
+      "model": "haiku-4.5",
+      "summary_model": "haiku-4.5",
+      "fields": {
+        "claimant_name": "PRIYA RAMAN",
+        "policy_number": "POL-300552",
+        "incident_date": "2026-07-22",
+        "claim_amount": 6800.0,
+        "claim_type": "travel",
+        "incident_description": "Suitcase stolen from hotel lobby in Lisbon on 22/07/2026 during check-in, and fall on tram steps on 24/07/2026 requiring hospital emergency treatment.",
+        "currency": "USD"
+      },
+      "extraction_issues": [
+        {
+          "field": "claim_amount",
+          "severity": "warning",
+          "message": "6,800.00 exceeds coverage limit 5,000.00"
+        }
+      ],
+      "retrieved_sections": [
+        {
+          "heading": "Trip Cancellation",
+          "score": 0.3235
+        },
+        {
+          "heading": "Emergency Medical",
+          "score": 0.3201
+        },
+        {
+          "heading": "Baggage and Personal Items",
+          "score": 0.3097
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.2126
+        }
+      ],
+      "summary": "**CLAIMS BRIEFING \u2013 POL-300552**\n\n**Incident Summary**\nClaimant experienced two separate incidents during travel to {ADDRESS}: theft of suitcase during hotel check-in on 22/07/2026 and a fall on tram steps on 24/07/2026 requiring emergency hospital treatment.\n\n**Coverage Assessment**\nNEEDS REVIEW. The claim presents two distinct coverage issues:\n\n1. **Baggage theft**: LIKELY COVERED under Baggage and Personal Items (max $1,500 per trip). However, police report requirement must be verified\u2014theft must be reported within 24 hours per policy Exclusions.\n\n2. **Emergency medical treatment**: LIKELY COVERED under Emergency Medical for hospital treatment abroad. Requires itemised bills and treating doctor's report per policy terms.\n\n**Critical Issue**: Total claim ($6,800) significantly exceeds combined available coverage (~$1,500 baggage + policy medical limit). Automated validation flags $5,000 coverage limit discrepancy.\n\n**Next Action**\nRequest police report for theft incident, itemised medical bills, and doctor's report. Clarify policy medical limit and confirm incident dates align with policy validity.",
+      "summary_issues": [],
+      "verdict": "NEEDS REVIEW",
+      "guardrail_action": "GUARDRAIL_INTERVENED",
+      "pii_masked": [
+        "ADDRESS"
+      ],
+      "input_tokens": 1705,
+      "output_tokens": 479,
+      "latency_ms": 3232,
+      "cost_usd": 0.0041,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-001-auto.txt",
+      "model": "nova-lite",
+      "summary_model": "nova-lite",
+      "fields": {
+        "policy_number": "POL-100234",
+        "incident_date": "2026-08-14",
+        "claim_amount": 3840.5,
+        "claimant_name": "Maria Okafor",
+        "incident_description": "I was stopped at a red light at the junction of Elm Street and 5th Avenue when another vehicle hit the back of my car. The rear bumper, boot lid and left tail light were damaged. The other driver admitted fault at the scene.",
+        "claim_type": "auto"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.3454
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.3146
+        }
+      ],
+      "summary": "**Incident Description:** Maria Okafor was rear-ended at a red light, damaging her car's rear bumper, boot lid, and left tail light.\n\n**Coverage Assessment:** LIKELY COVERED. The collision with another vehicle is covered under \"Covered Perils\" (POL-100234).\n\n**Next Action:** Request a police report number, photos, and at least one repair estimate due to the repair cost exceeding $2,000, as per \"Claim Requirements\" (POL-100234).",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1207,
+      "output_tokens": 235,
+      "latency_ms": 1873,
+      "cost_usd": 0.000129,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-002-home.txt",
+      "model": "nova-lite",
+      "summary_model": "nova-lite",
+      "fields": {
+        "policy_number": "POL-200871",
+        "incident_date": "2026-10-03",
+        "claim_amount": 4250,
+        "claimant_name": "James Whitfield",
+        "incident_description": "On the night of Saturday 3 October 2026 the supply pipe under our kitchen sink burst while we were asleep.",
+        "claim_type": "home"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.2958
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.2185
+        }
+      ],
+      "summary": "**Incident Description:** On 3 October 2026, a supply pipe under the kitchen sink burst while the claimant was asleep.\n\n**Coverage Assessment:** LIKELY COVERED. The incident involves the sudden and accidental discharge of water from plumbing, which is covered under \"Covered Perils\" (POL-200871).\n\n**Next Action:** Request photos, itemised contractor invoices, and the date the damage was discovered to proceed with the claim.",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1270,
+      "output_tokens": 190,
+      "latency_ms": 1788,
+      "cost_usd": 0.000122,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-003-travel.txt",
+      "model": "nova-lite",
+      "summary_model": "nova-lite",
+      "fields": {
+        "policy_number": "POL-300552",
+        "incident_date": "2026-07-22",
+        "claim_amount": 6800,
+        "claimant_name": "PRIYA RAMAN",
+        "incident_description": "My suitcase was stolen from the hotel lobby in Lisbon on 22/07/2026 while I was checking in. I reported it to the PSP police the same evening. Then on the 24th I had a fall on the tram steps and needed treatment at Hospital de Santa Maria.",
+        "claim_type": "travel"
+      },
+      "extraction_issues": [
+        {
+          "field": "claim_amount",
+          "severity": "warning",
+          "message": "6,800.00 exceeds coverage limit 5,000.00"
+        }
+      ],
+      "retrieved_sections": [
+        {
+          "heading": "Baggage and Personal Items",
+          "score": 0.3309
+        },
+        {
+          "heading": "Emergency Medical",
+          "score": 0.2931
+        },
+        {
+          "heading": "Trip Cancellation",
+          "score": 0.2739
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.1975
+        }
+      ],
+      "summary": "**Incident:** Priya Raman's suitcase was stolen in {ADDRESS}, followed by a tram accident requiring hospital treatment.\n\n**Coverage Assessment:** LIKELY COVERED. Stolen baggage is covered up to $500 under \"Baggage and Personal Items\" and medical treatment is covered under \"Emergency Medical.\" However, the claim amount exceeds the policy limit. (\"Baggage and Personal Items,\" \"Emergency Medical\")\n\n**Next Action:** Review the claim amount and ensure all required documentation is submitted.",
+      "summary_issues": [
+        {
+          "field": "summary",
+          "severity": "warning",
+          "message": "Verdict is LIKELY COVERED although rule checks raised issues"
+        }
+      ],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "GUARDRAIL_INTERVENED",
+      "pii_masked": [
+        "ADDRESS"
+      ],
+      "input_tokens": 1446,
+      "output_tokens": 232,
+      "latency_ms": 1795,
+      "cost_usd": 0.000142,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": false,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-001-auto.txt",
+      "model": "nova-micro",
+      "summary_model": "nova-micro",
+      "fields": {
+        "policy_number": "POL-100234",
+        "incident_date": "2026-08-14",
+        "claim_amount": 3840.5,
+        "claimant_name": "Maria Okafor",
+        "incident_description": "I was stopped at a red light at the junction of Elm Street and 5th Avenue when another vehicle hit the back of my car. The rear bumper, boot lid and left tail light were damaged. The other driver admitted fault at the scene.",
+        "claim_type": "auto"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.3454
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.3146
+        }
+      ],
+      "summary": "**Briefing for Claim POL-100234:**\n\n**Incident Description:** On August 14, 2026, Maria Okafor's car was rear-ended at a junction, causing damage to the rear bumper, boot lid, and left tail light.\n\n**Coverage Assessment:** LIKELY COVERED. The incident involves a collision with another vehicle, fitting the description under Covered Perils (POL-100234). \n\n**Next Action:** Request the claimant to submit a police report number due to the repair cost exceeding $2,000 and provide photos and at least one repair estimate as per Claim Requirements (POL-100234).",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1207,
+      "output_tokens": 267,
+      "latency_ms": 1502,
+      "cost_usd": 8e-05,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-002-home.txt",
+      "model": "nova-micro",
+      "summary_model": "nova-micro",
+      "fields": {
+        "policy_number": "POL-200871",
+        "incident_date": "2026-10-03",
+        "claim_amount": 4250,
+        "claimant_name": "James Whitfield",
+        "incident_description": "Water damage in kitchen due to burst supply pipe",
+        "claim_type": "home"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.5306
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.338
+        }
+      ],
+      "summary": "**Incident Description:** James Whitfield reported water damage in the kitchen due to a burst supply pipe on October 3, 2026.\n\n**Coverage Assessment:** LIKELY COVERED. The incident involves a sudden discharge of water from a burst supply pipe, which is not excluded under the policy's exclusions for wear and tear or continuous leakage. (Refer to Exclusions, POL-200871).\n\n**Next Action for the Handler:** Request photos, itemised contractor invoices, and the date the damage was discovered to validate the claim fully. Ensure the claimant took reasonable steps to prevent further damage, such as shutting off the water supply. (Refer to Claim Requirements, POL-200871).",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1251,
+      "output_tokens": 227,
+      "latency_ms": 1254,
+      "cost_usd": 7.6e-05,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-003-travel.txt",
+      "model": "nova-micro",
+      "summary_model": "nova-micro",
+      "fields": {
+        "policy_number": "POL-300552",
+        "incident_date": "2026-07-22",
+        "claim_amount": 6800,
+        "claimant_name": "PRIYA RAMAN",
+        "incident_description": "Suitcase stolen from hotel lobby in Lisbon and fall on tram steps requiring hospital treatment",
+        "claim_type": "travel"
+      },
+      "extraction_issues": [
+        {
+          "field": "claim_amount",
+          "severity": "warning",
+          "message": "6,800.00 exceeds coverage limit 5,000.00"
+        }
+      ],
+      "retrieved_sections": [
+        {
+          "heading": "Baggage and Personal Items",
+          "score": 0.2816
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.2174
+        }
+      ],
+      "summary": "**Incident Description:** Priya Raman's suitcase was stolen from a hotel lobby in {ADDRESS}, and she fell on tram steps requiring hospital treatment.\n\n**Coverage Assessment:** LIKELY NOT COVERED due to the claim amount of $6,800 exceeding the coverage limit of $5,000 per trip. Additionally, the incident involves medical treatment, which is not covered under the Baggage and Personal Items section (Policy Section: Exclusions).\n\n**Next Action for the Handler:** Contact Priya Raman to gather additional documentation to support the medical expenses, but inform her that the claim for the stolen suitcase will likely not be covered due to the coverage limit and amount exceeding the policy's terms.",
+      "summary_issues": [],
+      "verdict": "LIKELY NOT COVERED",
+      "guardrail_action": "GUARDRAIL_INTERVENED",
+      "pii_masked": [
+        "ADDRESS"
+      ],
+      "input_tokens": 1316,
+      "output_tokens": 227,
+      "latency_ms": 1417,
+      "cost_usd": 7.8e-05,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": false,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-001-auto.txt",
+      "model": "nova-micro -> haiku-4.5",
+      "summary_model": "nova-micro",
+      "fields": {
+        "policy_number": "POL-100234",
+        "incident_date": "2026-08-14",
+        "claim_amount": 3840.5,
+        "claimant_name": "Maria Okafor",
+        "incident_description": "I was stopped at a red light at the junction of Elm Street and 5th Avenue when another vehicle hit the back of my car. The rear bumper, boot lid and left tail light were damaged. The other driver admitted fault at the scene.",
+        "claim_type": "auto"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.3454
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.3146
+        }
+      ],
+      "summary": "**Briefing for Claims Handler:**\n\n**Incident Description:** Maria Okafor was rear-ended at a red light intersection, causing damage to the rear bumper, boot lid, and left tail light.\n\n**Coverage Assessment:** LIKELY COVERED. The incident involves a collision with another vehicle, fitting the description under Covered Perils (POL-100234). The repair cost exceeds $2,000, but no police report number was provided, which is required by Claim Requirements (POL-100234).\n\n**Next Action:** Request a police report number and ask for photos and a repair estimate from the claimant to fulfill the Claim Requirements (POL-100234).",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1207,
+      "output_tokens": 269,
+      "latency_ms": 1491,
+      "cost_usd": 8e-05,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-002-home.txt",
+      "model": "nova-micro -> haiku-4.5",
+      "summary_model": "nova-micro",
+      "fields": {
+        "policy_number": "POL-200871",
+        "incident_date": "2026-10-03",
+        "claim_amount": 4250,
+        "claimant_name": "James Whitfield",
+        "incident_description": "Water damage in kitchen due to burst supply pipe",
+        "claim_type": "home"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.5306
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.338
+        }
+      ],
+      "summary": "**Incident Description:** James Whitfield reported water damage in the kitchen due to a burst supply pipe on October 3, 2026.\n\n**Coverage Assessment:** LIKELY COVERED. The damage resulted from a sudden discharge of water, which is covered under the policy, barring exclusions for continuous leaks or mould not directly resulting from a sudden discharge. (Policy Section: Coverage)\n\n**Next Action:** Request photos, itemised contractor invoices, and the date the damage was discovered to validate the claim fully. Ensure the steps taken to prevent further damage are documented.",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1251,
+      "output_tokens": 191,
+      "latency_ms": 1139,
+      "cost_usd": 7.1e-05,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-003-travel.txt",
+      "model": "nova-micro -> haiku-4.5",
+      "summary_model": "haiku-4.5",
+      "fields": {
+        "policy_number": "POL-300552",
+        "incident_date": "2026-07-22",
+        "claim_amount": 6800,
+        "claimant_name": "PRIYA RAMAN",
+        "incident_description": "Suitcase stolen from hotel lobby in Lisbon and fall on tram steps requiring hospital treatment",
+        "claim_type": "travel"
+      },
+      "extraction_issues": [
+        {
+          "field": "claim_amount",
+          "severity": "warning",
+          "message": "6,800.00 exceeds coverage limit 5,000.00"
+        }
+      ],
+      "retrieved_sections": [
+        {
+          "heading": "Baggage and Personal Items",
+          "score": 0.2816
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.2174
+        }
+      ],
+      "summary": "**CLAIMS BRIEFING \u2013 POL-300552**\n\n**Incident Summary**\nClaimant's suitcase was stolen from a hotel lobby in {ADDRESS} on 22 July 2026, and she sustained injuries from a fall on tram steps requiring hospitalization.\n\n**Coverage Assessment**\nNEEDS REVIEW. The baggage theft claim of $6,800 significantly exceeds policy limits under *Baggage and Personal Items*, which covers lost or stolen baggage up to $1,500 per trip with a $500 maximum per single item. The claim is valid only if a police report was filed within 24 hours as required by the *Baggage and Personal Items* section. The medical claim from the tram fall falls outside baggage coverage and requires separate assessment against medical/accident provisions not provided here.\n\n**Next Action**\nRequest police report documentation from claimant to verify theft was reported within 24 hours. Clarify whether the $6,800 represents baggage value only or includes medical expenses. Obtain itemized baggage list and medical records for the tram incident.",
+      "summary_issues": [],
+      "verdict": "NEEDS REVIEW",
+      "guardrail_action": "GUARDRAIL_INTERVENED",
+      "pii_masked": [
+        "ADDRESS"
+      ],
+      "input_tokens": 1337,
+      "output_tokens": 331,
+      "latency_ms": 2565,
+      "cost_usd": 0.001658,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-001-auto.txt",
+      "model": "nova-lite -> haiku-4.5",
+      "summary_model": "nova-lite",
+      "fields": {
+        "policy_number": "POL-100234",
+        "incident_date": "2026-08-14",
+        "claim_amount": 3840.5,
+        "claimant_name": "Maria Okafor",
+        "incident_description": "I was stopped at a red light at the junction of Elm Street and 5th Avenue when another vehicle hit the back of my car. The rear bumper, boot lid and left tail light were damaged. The other driver admitted fault at the scene.",
+        "claim_type": "auto"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.3454
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.3146
+        }
+      ],
+      "summary": "**Incident Description:** Maria Okafor's car was rear-ended at a red light, damaging the rear bumper, boot lid, and left tail light.\n\n**Coverage Assessment:** LIKELY COVERED. The incident involves a collision with another vehicle, which is covered under \"Covered Perils\" (POL-100234).\n\n**Next Action:** Request a police report number, photos, and at least one repair estimate as per \"Claim Requirements\" (POL-100234).",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1207,
+      "output_tokens": 227,
+      "latency_ms": 2038,
+      "cost_usd": 0.000127,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-002-home.txt",
+      "model": "nova-lite -> haiku-4.5",
+      "summary_model": "nova-lite",
+      "fields": {
+        "policy_number": "POL-200871",
+        "incident_date": "2026-10-03",
+        "claim_amount": 4250,
+        "claimant_name": "James Whitfield",
+        "incident_description": "On the night of Saturday 3 October 2026 the supply pipe under our kitchen sink burst while we were asleep.",
+        "claim_type": "home"
+      },
+      "extraction_issues": [],
+      "retrieved_sections": [
+        {
+          "heading": "Claim Requirements",
+          "score": 0.2958
+        },
+        {
+          "heading": "Covered Perils",
+          "score": 0.2185
+        }
+      ],
+      "summary": "**Incident Description:** On 3 October 2026, the kitchen supply pipe burst while the claimant was asleep.\n\n**Coverage Assessment:** LIKELY COVERED. The incident involves the sudden and accidental discharge of water from plumbing, which is explicitly covered under \"Covered Perils\" (POL-200871).\n\n**Next Action:** Request photos, itemised contractor invoices, and the date the damage was discovered from the claimant.",
+      "summary_issues": [],
+      "verdict": "LIKELY COVERED",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1270,
+      "output_tokens": 186,
+      "latency_ms": 1830,
+      "cost_usd": 0.000121,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    },
+    {
+      "document_key": "claims/claim-003-travel.txt",
+      "model": "nova-lite -> haiku-4.5",
+      "summary_model": "haiku-4.5",
+      "fields": {
+        "policy_number": "POL-300552",
+        "incident_date": "2026-07-22",
+        "claim_amount": 6800,
+        "claimant_name": "PRIYA RAMAN",
+        "incident_description": "My suitcase was stolen from the hotel lobby in Lisbon on 22/07/2026 while I was checking in. I reported it to the PSP police the same evening. Then on the 24th I had a fall on the tram steps and needed treatment at Hospital de Santa Maria.",
+        "claim_type": "travel"
+      },
+      "extraction_issues": [
+        {
+          "field": "claim_amount",
+          "severity": "warning",
+          "message": "6,800.00 exceeds coverage limit 5,000.00"
+        }
+      ],
+      "retrieved_sections": [
+        {
+          "heading": "Baggage and Personal Items",
+          "score": 0.3309
+        },
+        {
+          "heading": "Emergency Medical",
+          "score": 0.2931
+        },
+        {
+          "heading": "Trip Cancellation",
+          "score": 0.2739
+        },
+        {
+          "heading": "Exclusions",
+          "score": 0.1975
+        }
+      ],
+      "summary": "**CLAIMS BRIEFING \u2013 POL-300552**\n\n**Incident Summary**\nClaimant's suitcase was stolen from a Lisbon hotel lobby on 22 July 2026, and she subsequently sustained a tram-related injury requiring hospital treatment on 24 July.\n\n**Coverage Assessment**\n**NEEDS REVIEW.** Two separate claims are presented. The baggage theft appears eligible under *Baggage and Personal Items* (police report provided within 24 hours as required); however, the claimed amount of $6,800 significantly exceeds the $1,500 per-trip limit. The emergency medical treatment on 24 July falls under *Emergency Medical* coverage, but requires itemised bills and treating doctor's report to validate. The validation system flags the total claim amount as exceeding policy limits.\n\n**Next Action**\nRequest itemised medical bills and doctor's report from Hospital de Santa Maria. Obtain the written police report for the theft. Separate the claims and apply appropriate limits: $1,500 maximum for baggage (less any single-item deductibles), and process medical costs within policy limits pending documentation review.",
+      "summary_issues": [],
+      "verdict": "NEEDS REVIEW",
+      "guardrail_action": "NONE",
+      "pii_masked": [],
+      "input_tokens": 1465,
+      "output_tokens": 386,
+      "latency_ms": 3243,
+      "cost_usd": 0.001875,
+      "score": {
+        "field_accuracy": 1.0,
+        "field_misses": [],
+        "verdict_ok": true,
+        "flags_ok": true
+      }
+    }
+  ]
+}
